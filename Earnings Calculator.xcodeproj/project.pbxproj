@@ -16,6 +16,8 @@
 		EFE4A08125B847740065FD7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE4A07F25B847740065FD7B /* LaunchScreen.storyboard */; };
 		EFE4A08C25B847750065FD7B /* Earnings_CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE4A08B25B847750065FD7B /* Earnings_CalculatorTests.swift */; };
 		EFE4A09725B847750065FD7B /* Earnings_CalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE4A09625B847750065FD7B /* Earnings_CalculatorUITests.swift */; };
+		EFE4A0A825B89A090065FD7B /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE4A0A725B89A090065FD7B /* Day.swift */; };
+		EFE4A0AD25B89A300065FD7B /* Day.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFE4A0AC25B89A300065FD7B /* Day.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		EFE4A09225B847750065FD7B /* Earnings CalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Earnings CalculatorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE4A09625B847750065FD7B /* Earnings_CalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Earnings_CalculatorUITests.swift; sourceTree = "<group>"; };
 		EFE4A09825B847750065FD7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFE4A0A725B89A090065FD7B /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		EFE4A0AC25B89A300065FD7B /* Day.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Day.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,8 @@
 				EFE4A07125B847720065FD7B /* AppDelegate.swift */,
 				EFE4A07325B847720065FD7B /* SceneDelegate.swift */,
 				EFE4A07525B847720065FD7B /* ViewController.swift */,
+				EFE4A0A725B89A090065FD7B /* Day.swift */,
+				EFE4A0AC25B89A300065FD7B /* Day.xib */,
 				EFE4A07725B847720065FD7B /* Main.storyboard */,
 				EFE4A07D25B847740065FD7B /* Assets.xcassets */,
 				EFE4A07F25B847740065FD7B /* LaunchScreen.storyboard */,
@@ -236,6 +242,7 @@
 			files = (
 				EFE4A08125B847740065FD7B /* LaunchScreen.storyboard in Resources */,
 				EFE4A07E25B847740065FD7B /* Assets.xcassets in Resources */,
+				EFE4A0AD25B89A300065FD7B /* Day.xib in Resources */,
 				EFE4A07925B847720065FD7B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +271,7 @@
 				EFE4A07C25B847720065FD7B /* Earnings_Calculator.xcdatamodeld in Sources */,
 				EFE4A07625B847720065FD7B /* ViewController.swift in Sources */,
 				EFE4A07225B847720065FD7B /* AppDelegate.swift in Sources */,
+				EFE4A0A825B89A090065FD7B /* Day.swift in Sources */,
 				EFE4A07425B847720065FD7B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,6 +451,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RP4494TRCV;
 				INFOPLIST_FILE = "Earnings Calculator/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -462,6 +471,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RP4494TRCV;
 				INFOPLIST_FILE = "Earnings Calculator/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

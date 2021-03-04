@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Rates" representedClassName="Rates" syncable="YES" codeGenerationType="class">
+        <attribute name="fridayInTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="fridayOutTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="fridaySelected" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="mondayInTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="mondayOutTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="mondaySelected" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="ordinaryPay" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="saturdayInTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="saturdayOutTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="saturdaySelected" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="sundayInTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="sundayOutTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="sundaySelected" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="thursdayInTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="thursdayOutTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="thursdaySelected" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="timeAndHalf" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="tuesdayInTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="tuesdayOutTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="tuesdaySelected" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="wednesdayInTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="wednesdayOutTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="wednesdaySelected" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="Rates" positionX="-27" positionY="18" width="128" height="374"/>
+    </elements>
 </model>
