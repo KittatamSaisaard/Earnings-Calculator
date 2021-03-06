@@ -19,14 +19,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var Sunday: Day!
     
     @IBOutlet weak var ordinaryPay: UITextField!
-    @IBOutlet weak var timeAndHalf: UITextField!
+    @IBOutlet weak var monToFriAfterSixPMBeforeElevenPMPay: UITextField!
+    @IBOutlet weak var saturdayPay: UITextField!
+    @IBOutlet weak var sundayPay: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         ordinaryPay.delegate = self
-        timeAndHalf.delegate = self
+        monToFriAfterSixPMBeforeElevenPMPay.delegate = self
+        saturdayPay.delegate = self
+        sundayPay.delegate = self
         
         self.hideKeyboardWhenTappedAround()
         
@@ -61,7 +65,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
             let result = try managedContent.fetch(fetchRequest)
 
             (result.last as! NSManagedObject).setValue((ordinaryPay.text! as NSString).doubleValue, forKey: "ordinaryPay")
-            (result.last as! NSManagedObject).setValue((timeAndHalf.text! as NSString).doubleValue, forKey: "timeAndHalf")
+            (result.last as! NSManagedObject).setValue((monToFriAfterSixPMBeforeElevenPMPay.text! as NSString).doubleValue, forKey: "monToFriAfterSixPMBeforeElevenPMPay")
+            (result.last as! NSManagedObject).setValue((saturdayPay.text! as NSString).doubleValue, forKey: "saturdayPay")
+            (result.last as! NSManagedObject).setValue((sundayPay.text! as NSString).doubleValue, forKey: "sundayPay")
             
             (result.last as! NSManagedObject).setValue(Monday.toggleSwitch.isOn, forKey: "mondaySelected")
             (result.last as! NSManagedObject).setValue(Monday.inTime.date, forKey: "mondayInTime")
@@ -91,7 +97,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             (result.last as! NSManagedObject).setValue(Sunday.inTime.date, forKey: "sundayInTime")
             (result.last as! NSManagedObject).setValue(Sunday.outTime.date, forKey: "sundayOutTime")
             
-            print(result.count)
+            //print(result.count)
         } catch {
             print("Error")
         }
@@ -104,6 +110,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func fetchCoreData() {
+        ordinaryPay.text = String(27.24)
+        monToFriAfterSixPMBeforeElevenPMPay.text = String(31.60)
+        saturdayPay.text = String(32.69)
+        sundayPay.text = String(38.13)
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
         let managedContent = appDelegate.persistentContainer.viewContext
         let fetchRequest  = NSFetchRequest<NSFetchRequestResult>(entityName: "Rates")
@@ -116,7 +126,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 let ratesEntity = NSEntityDescription.entity(forEntityName: "Rates", in: managedContent)!
                 let rates = NSManagedObject(entity: ratesEntity, insertInto: managedContent)
                 rates.setValue((ordinaryPay.text! as NSString).doubleValue, forKey: "ordinaryPay")
-                rates.setValue((timeAndHalf.text! as NSString).doubleValue, forKey: "timeAndHalf")
+                rates.setValue((monToFriAfterSixPMBeforeElevenPMPay.text! as NSString).doubleValue, forKey: "monToFriAfterSixPMBeforeElevenPMPay")
+                rates.setValue((saturdayPay.text! as NSString).doubleValue, forKey: "saturdayPay")
+                rates.setValue((sundayPay.text! as NSString).doubleValue, forKey: "sundayPay")
+                
                 
                 rates.setValue(Monday.toggleSwitch.isOn, forKey: "mondaySelected")
                 rates.setValue(Monday.inTime.date, forKey: "mondayInTime")
@@ -153,7 +166,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 }
             } else {
                 ordinaryPay.text = String(format: "%@", (result.last as! NSManagedObject).value(forKey: "ordinaryPay") as! CVarArg)
-                timeAndHalf.text = String(format: "%@", (result.last as! NSManagedObject).value(forKey: "timeAndHalf") as! CVarArg)
+                monToFriAfterSixPMBeforeElevenPMPay.text = String(format: "%@", (result.last as! NSManagedObject).value(forKey: "monToFriAfterSixPMBeforeElevenPMPay") as! CVarArg)
+                saturdayPay.text = String(format: "%@", (result.last as! NSManagedObject).value(forKey: "saturdayPay") as! CVarArg)
+                sundayPay.text = String(format: "%@", (result.last as! NSManagedObject).value(forKey: "sundayPay") as! CVarArg)
                 
                 let mondayToggled = (result.last as! NSManagedObject).value(forKey: "mondaySelected") as! Bool
                 Monday.toggleSwitch.isOn = mondayToggled
@@ -222,10 +237,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         Thursday.updateResults()
         Friday.payRate = (ordinaryPay.text! as NSString).doubleValue
         Friday.updateResults()
-        Saturday.payRate = (ordinaryPay.text! as NSString).doubleValue
+        Saturday.payRate = (saturdayPay.text! as NSString).doubleValue
         Saturday.updateResults()
-        Sunday.payRate = (timeAndHalf.text! as NSString).doubleValue
+        Saturday.weekDay = false
+        Sunday.payRate = (sundayPay.text! as NSString).doubleValue
         Sunday.updateResults()
+        Sunday.weekDay = false
         
         let totalIncome = calculateTotalPay()
         let totalTax = calculateTotalTax(income: totalIncome)
