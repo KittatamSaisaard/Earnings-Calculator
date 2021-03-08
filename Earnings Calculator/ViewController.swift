@@ -110,10 +110,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func fetchCoreData() {
-        ordinaryPay.text = String(27.24)
-        monToFriAfterSixPMBeforeElevenPMPay.text = String(31.60)
-        saturdayPay.text = String(32.69)
-        sundayPay.text = String(38.13)
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
         let managedContent = appDelegate.persistentContainer.viewContext
         let fetchRequest  = NSFetchRequest<NSFetchRequestResult>(entityName: "Rates")
@@ -123,6 +119,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
 //            managedContent.delete(resultTemp.last as! NSManagedObject)
             let result = try managedContent.fetch(fetchRequest)
             if (result.count == 0) {
+                ordinaryPay.text = String(format: "%.2f", 27.24)
+                monToFriAfterSixPMBeforeElevenPMPay.text = String(format: "%.2f", 31.60)
+                saturdayPay.text = String(format: "%.2f", 32.69)
+                sundayPay.text = String(format: "%.2f", 38.13)
                 let ratesEntity = NSEntityDescription.entity(forEntityName: "Rates", in: managedContent)!
                 let rates = NSManagedObject(entity: ratesEntity, insertInto: managedContent)
                 rates.setValue((ordinaryPay.text! as NSString).doubleValue, forKey: "ordinaryPay")
