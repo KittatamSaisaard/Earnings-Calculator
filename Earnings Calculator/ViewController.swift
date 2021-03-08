@@ -165,10 +165,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     print("Could not save. \(error), \(error.userInfo)")
                 }
             } else {
-                ordinaryPay.text = String(format: "%@", (result.last as! NSManagedObject).value(forKey: "ordinaryPay") as! CVarArg)
-                monToFriAfterSixPMBeforeElevenPMPay.text = String(format: "%@", (result.last as! NSManagedObject).value(forKey: "monToFriAfterSixPMBeforeElevenPMPay") as! CVarArg)
-                saturdayPay.text = String(format: "%@", (result.last as! NSManagedObject).value(forKey: "saturdayPay") as! CVarArg)
-                sundayPay.text = String(format: "%@", (result.last as! NSManagedObject).value(forKey: "sundayPay") as! CVarArg)
+                ordinaryPay.text = String(format: "%.2f", ((result.last as! NSManagedObject).value(forKey: "ordinaryPay") as! NSNumber).doubleValue)
+                monToFriAfterSixPMBeforeElevenPMPay.text = String(format: "%.2f", ((result.last as! NSManagedObject).value(forKey: "monToFriAfterSixPMBeforeElevenPMPay") as! NSNumber).doubleValue)
+                saturdayPay.text = String(format: "%.2f", ((result.last as! NSManagedObject).value(forKey: "saturdayPay") as! NSNumber).doubleValue)
+                sundayPay.text = String(format: "%.2f", ((result.last as! NSManagedObject).value(forKey: "sundayPay") as! NSNumber).doubleValue)
                 
                 let mondayToggled = (result.last as! NSManagedObject).value(forKey: "mondaySelected") as! Bool
                 Monday.toggleSwitch.isOn = mondayToggled
