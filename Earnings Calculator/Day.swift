@@ -21,7 +21,7 @@ class Day: UIView {
     var payAmount: Double = 0
     var totalHours: Double = 0
     var weekDay: Bool = true
-    var monToFriSixPMToElevenPMPayRate: Double = 31.60
+    var monToFriSixPMToElevenPMPayRate: Double = 32.69
     
     override init(frame: CGRect) {
         super.init(frame: frame)

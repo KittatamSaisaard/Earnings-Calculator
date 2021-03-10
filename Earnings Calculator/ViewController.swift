@@ -120,7 +120,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             let result = try managedContent.fetch(fetchRequest)
             if (result.count == 0) {
                 ordinaryPay.text = String(format: "%.2f", 27.24)
-                monToFriAfterSixPMBeforeElevenPMPay.text = String(format: "%.2f", 31.60)
+                monToFriAfterSixPMBeforeElevenPMPay.text = String(format: "%.2f", 32.69)
                 saturdayPay.text = String(format: "%.2f", 32.69)
                 sundayPay.text = String(format: "%.2f", 38.13)
                 let ratesEntity = NSEntityDescription.entity(forEntityName: "Rates", in: managedContent)!
@@ -228,14 +228,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     func calculate() {
         Monday.payRate = (ordinaryPay.text! as NSString).doubleValue
+        Monday.monToFriSixPMToElevenPMPayRate = (monToFriAfterSixPMBeforeElevenPMPay.text! as NSString).doubleValue
         Monday.updateResults()
         Tuesday.payRate = (ordinaryPay.text! as NSString).doubleValue
+        Tuesday.monToFriSixPMToElevenPMPayRate = (monToFriAfterSixPMBeforeElevenPMPay.text! as NSString).doubleValue
         Tuesday.updateResults()
         Wednesday.payRate = (ordinaryPay.text! as NSString).doubleValue
+        Wednesday.monToFriSixPMToElevenPMPayRate = (monToFriAfterSixPMBeforeElevenPMPay.text! as NSString).doubleValue
         Wednesday.updateResults()
         Thursday.payRate = (ordinaryPay.text! as NSString).doubleValue
+        Thursday.monToFriSixPMToElevenPMPayRate = (monToFriAfterSixPMBeforeElevenPMPay.text! as NSString).doubleValue
         Thursday.updateResults()
         Friday.payRate = (ordinaryPay.text! as NSString).doubleValue
+        Friday.monToFriSixPMToElevenPMPayRate = (monToFriAfterSixPMBeforeElevenPMPay.text! as NSString).doubleValue
         Friday.updateResults()
         Saturday.payRate = (saturdayPay.text! as NSString).doubleValue
         Saturday.updateResults()
