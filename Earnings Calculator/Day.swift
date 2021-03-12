@@ -22,6 +22,10 @@ class Day: UIView {
     var totalHours: Double = 0
     var weekDay: Bool = true
     var monToFriSixPMToElevenPMPayRate: Double = 32.69
+    var ordinarySpecialHoursAmount: Double = 0
+    var ordinarySpecialPayAmount: Double = 0
+    var specialSpecialHoursAmount: Double = 0
+    var specialSpecialPayAmount: Double = 0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,6 +54,14 @@ class Day: UIView {
     @IBOutlet weak var Hours: UILabel!
     @IBOutlet weak var Pay: UILabel!
     @IBOutlet weak var Details: UIView!
+    @IBOutlet weak var normalPayAndHours: UIView!
+    @IBOutlet weak var specialPayAndHours: UIView!
+    @IBOutlet weak var totalSpecialPay: UILabel!
+    @IBOutlet weak var totalSpecialHours: UILabel!
+    @IBOutlet weak var ordinarySpecialPay: UILabel!
+    @IBOutlet weak var ordinarySpecialHours: UILabel!
+    @IBOutlet weak var specialSpecialPay: UILabel!
+    @IBOutlet weak var specialSpecialHours: UILabel!
     
     var timeObject: [String: Any] = [
         "outsideSixAndEleven": 0,
@@ -118,14 +130,44 @@ class Day: UIView {
             payAmount = 0
             totalHours = 0
         } else if (weekDay == true) {
+//            if ((timeObject["betweenSixAndEleven"] as! Double) > 0) {
+//                normalPayAndHours.isHidden = true
+//                specialPayAndHours.isHidden = false
+//            } else {
+//                normalPayAndHours.isHidden = false
+//                specialPayAndHours.isHidden = true
+//            }
             totalHours = timeObject["totalTime"] as! Double
             payAmount = (payRate * (timeObject["outsideSixAndEleven"] as! Double).rounded(toPlaces: 2)) + (monToFriSixPMToElevenPMPayRate * (timeObject["betweenSixAndEleven"] as! Double).rounded(toPlaces: 2))
+            
+            ordinarySpecialHoursAmount = timeObject["outsideSixAndEleven"] as! Double
+            ordinarySpecialPayAmount = payRate * ordinarySpecialHoursAmount.rounded(toPlaces: 2)
+            
+            specialSpecialHoursAmount = timeObject["betweenSixAndEleven"] as! Double
+            specialSpecialPayAmount = monToFriSixPMToElevenPMPayRate * specialSpecialHoursAmount.rounded(toPlaces: 2)
         } else {
             totalHours = timeObject["totalTime"] as! Double
-            payAmount = (payRate * totalHours.rounded(toPlaces: 2))
+            payAmount = payRate * totalHours.rounded(toPlaces: 2)
         }
-        Hours.text = String(format: "%.2f", totalHours.rounded(toPlaces: 3)) + " hours"
-        Pay.text = "$" + String(format: "%.2f", payAmount.rounded(toPlaces: 3))
+        
+        if (((timeObject["betweenSixAndEleven"] as! Double) > 0) && (weekDay == true)) {
+            normalPayAndHours.isHidden = true
+            specialPayAndHours.isHidden = false
+            
+            ordinarySpecialHours.text = String(format: "%.2f", ordinarySpecialHoursAmount.rounded(toPlaces: 3)) + " hours"
+            ordinarySpecialPay.text = "$" + String(format: "%.2f", ordinarySpecialPayAmount.rounded(toPlaces: 3))
+            
+            specialSpecialHours.text = String(format: "%.2f", specialSpecialHoursAmount.rounded(toPlaces: 3)) + " hours"
+            specialSpecialPay.text = "$" + String(format: "%.2f", specialSpecialPayAmount.rounded(toPlaces: 3))
+            
+            totalSpecialHours.text = String(format: "%.2f", totalHours.rounded(toPlaces: 3)) + " hours"
+            totalSpecialPay.text = "$" + String(format: "%.2f", payAmount.rounded(toPlaces: 3))
+        } else {
+            normalPayAndHours.isHidden = false
+            specialPayAndHours.isHidden = true
+            Hours.text = String(format: "%.2f", totalHours.rounded(toPlaces: 3)) + " hours"
+            Pay.text = "$" + String(format: "%.2f", payAmount.rounded(toPlaces: 3))
+        }
     }
 
     @IBAction func In(_ sender: UIDatePicker) {
