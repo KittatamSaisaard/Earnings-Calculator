@@ -154,18 +154,34 @@ class Day: UIView {
             normalPayAndHours.isHidden = true
             specialPayAndHours.isHidden = false
             
-            ordinarySpecialHours.text = String(format: "%.2f", ordinarySpecialHoursAmount.rounded(toPlaces: 3)) + " hours"
+            if (ordinarySpecialHoursAmount > 1) {
+                ordinarySpecialHours.text = String(format: "%.2f", ordinarySpecialHoursAmount.rounded(toPlaces: 3)) + " hours"
+            } else {
+                ordinarySpecialHours.text = String(format: "%.2f", ordinarySpecialHoursAmount.rounded(toPlaces: 3)) + " hour"
+            }
             ordinarySpecialPay.text = "$" + String(format: "%.2f", ordinarySpecialPayAmount.rounded(toPlaces: 3))
             
-            specialSpecialHours.text = String(format: "%.2f", specialSpecialHoursAmount.rounded(toPlaces: 3)) + " hours"
+            if (specialSpecialHoursAmount > 1) {
+                specialSpecialHours.text = String(format: "%.2f", specialSpecialHoursAmount.rounded(toPlaces: 3)) + " hours"
+            } else {
+                specialSpecialHours.text = String(format: "%.2f", specialSpecialHoursAmount.rounded(toPlaces: 3)) + " hour"
+            }
             specialSpecialPay.text = "$" + String(format: "%.2f", specialSpecialPayAmount.rounded(toPlaces: 3))
             
-            totalSpecialHours.text = String(format: "%.2f", totalHours.rounded(toPlaces: 3)) + " hours"
+            if (totalHours > 1) {
+                totalSpecialHours.text = String(format: "%.2f", totalHours.rounded(toPlaces: 3)) + " hours"
+            } else {
+                totalSpecialHours.text = String(format: "%.2f", totalHours.rounded(toPlaces: 3)) + " hour"
+            }
             totalSpecialPay.text = "$" + String(format: "%.2f", payAmount.rounded(toPlaces: 3))
         } else {
             normalPayAndHours.isHidden = false
             specialPayAndHours.isHidden = true
-            Hours.text = String(format: "%.2f", totalHours.rounded(toPlaces: 3)) + " hours"
+            if (totalHours > 1) {
+                Hours.text = String(format: "%.2f", totalHours.rounded(toPlaces: 3)) + " hours"
+            } else {
+                Hours.text = String(format: "%.2f", totalHours.rounded(toPlaces: 3)) + " hour"
+            }
             Pay.text = "$" + String(format: "%.2f", payAmount.rounded(toPlaces: 3))
         }
     }
