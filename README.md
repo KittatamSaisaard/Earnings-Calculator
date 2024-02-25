@@ -7,3 +7,5 @@ The user only needs to enter their shift times for the week and the tax, total h
 
 Although this was designed for iOS, a working and live version that can be accessed on the web has been made.
 It can be found here: [kittatamsaisaard.com/retail-earnings-calculator](https://kittatamsaisaard.com/retail-earnings-calculator)
+
+![Demo Image of the Earnings Calculator Website](https://github.com/KittatamSaisaard/Earnings-Calculator/blob/master/Earnings%20Calculator%20Demo.PNG?raw=true)
